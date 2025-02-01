@@ -168,11 +168,12 @@ output "list_products_function_arn" {
 ```
 
 
-***3. Testing the CI/CD Pipeline***
+***2. Configuring Agents in Amazon Bedrock***
 
 
+***3. Redeploy the backend with AI Assistants***
 
 
 <h2>Conclusion</h2>
 
-In this project, I learned how to Leverage AWS CodeBuild and CodePipeline to create CI/CD Pipelines on the cloud with AWS that can link up to our Github repository allowing us to make changes on the fly!
+In this project, I learned how 
