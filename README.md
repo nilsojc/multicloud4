@@ -92,6 +92,46 @@ gh repo clone nilsojc/multicloud2
 Then, we will deploy our main.tf file for Terraform for setting up IAM roles and engage with the Cloudmart application:
 
 ```
+provider "aws" {
+  region = "us-east-1"  # Replace with your desired region
+}
+
+# DynamoDB Table for Products
+resource "aws_dynamodb_table" "cloudmart_products" {
+  name           = "cloudmart_products"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "product_id"
+
+  attribute {
+    name = "product_id"
+    type = "S"
+  }
+}
+
+# DynamoDB Table for Orders
+resource "aws_dynamodb_table" "cloudmart_orders" {
+  name           = "cloudmart_orders"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "order_id"
+
+  attribute {
+    name = "order_id"
+    type = "S"
+  }
+}
+
+# DynamoDB Table for Tickets
+resource "aws_dynamodb_table" "cloudmart_tickets" {
+  name           = "cloudmart_tickets"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "ticket_id"
+
+  attribute {
+    name = "ticket_id"
+    type = "S"
+  }
+}
+
 # IAM Role for Lambda function
 resource "aws_iam_role" "lambda_role" {
   name = "cloudmart_lambda_role"
@@ -170,7 +210,45 @@ output "list_products_function_arn" {
 
 ***2. Configuring Agents in Amazon Bedrock***
 
+In this step, we will configure Amazon Bedrock so that we can utilize `Claude 3 Sonnet` along with the creation of our AI agents with instructions and permissions specified. 
 
+First, we configure Amazon Bedrock to allow `Claude 3 Sonnet`:
+
+(Video)
+
+NOTE: Make sure that you have access granted by checking the AWS Console.
+
+Then, we will begin creating our agents
+
+```
+aws bedrock-agent create-agent \
+  --agent-name cloudmart-product-recommendation-agent \
+  --agent-resource-role-arn arn:aws:iam::137068224350:role/Cloudmart \
+  --foundation-model anthropic.claude-v3 \
+  --instruction file://agents.yaml
+```
+NOTE: You can check what the instructions are in the `agents.yaml` file found in my repo!
+
+Then, we will be configuring IAM access for invoking lambda functions
+
+```
+aws iam put-role-policy --role-name Cloudmart --policy-name BedrockAgentLambdaAccess --policy-document file://policy.json
+```
+
+We will now create an action group in Amazon Bedrock that utilizes a Lambda function "cloudmart-list-products" and an OpenAPI schema, defined in the AWS console.
+
+![image](/assets/image1.png)
+![image](/assets/image2.png)
+
+
+We will now prepare our agents with the following command:
+
+```
+aws bedrock-agent prepare-agent --agent-id 
+```
+
+
+Now, we will create an action group that will point to our current Lambda function "cloudmart-list-products"
 ***3. Redeploy the backend with AI Assistants***
 
 
