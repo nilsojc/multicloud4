@@ -15,7 +15,7 @@ spec:
       serviceAccountName: cloudmart-pod-execution-role
       containers:
       - name: cloudmart-backend-app
-        image: public.ecr.aws/l4c0j8h9/cloudmart-backend:latest
+        image: 137068224350.dkr.ecr.us-east-1.amazonaws.com/cloudmart-backend:latest
         env:
         - name: PORT
           value: "5000"

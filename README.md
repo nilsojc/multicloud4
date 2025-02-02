@@ -4,7 +4,7 @@
   
 ## ☁️ MultiCloud, DevOps & AI Challenge — Day 3 — Building and Automating CI/CD Pipeline to Test, Stage and Deploy our E-Commerce Application. ☁️
 
-This is part of the third project of the Multicloud, Devops and AI Challenge!
+This is part of the fourth project of the Multicloud, Devops and AI Challenge!
 
 In this project we will be build and automating our E-commerce application testings and deployments for production using AWS CodePipeline so that every time we push changes to our application they are built and deployed automatically. 
 
@@ -13,31 +13,17 @@ In this project we will be build and automating our E-commerce application testi
 
   - Amazon Web Services
   - Github Codespaces
-  - AWS CodePipeline
-  - AWS CodeBuild
+  - Amazon Bedrock 
+  - OpenAI 
   - Docker
-  - Amazon Elastic Container Registry
+  - Terraform
   
   
 <h2>Key Features</h2>  
 
-✅Automated CI/CD Pipeline:
-
-- Built a fully automated CI/CD pipeline using AWS CodePipeline to streamline the testing and deployment process for an E-commerce application.
-
-- Every push to the GitHub repository triggers the pipeline, ensuring seamless and continuous delivery.
-
-✅Integration with GitHub:
-
-- Connected the pipeline to a GitHub repository to monitor changes in the main branch.
-
-- Used GitHub OAuth tokens for secure integration with AWS CodePipeline.
-
-✅Automated Builds with AWS CodeBuild:
-
-- Leveraged AWS CodeBuild to automatically build the application whenever changes are pushed to the repository.
-
-- Configured build specifications (buildspec.yml) to define build steps, such as installing dependencies, running tests, and packaging the application.
+- ✅ Deployed Terraform Configuration for backend of the E-commerce app
+- ✅ Configured and created AI agents with Amazon Bedrock and OpenAI's API Keys
+- ✅ Deployed changes seamlessly with Docker images in the Elastic Container Registry with Kubernetes
 
 
 <h2>Step by Step Instructions</h2>
@@ -247,11 +233,51 @@ We will now prepare our agents with the following command:
 aws bedrock-agent prepare-agent --agent-id 
 ```
 
-
-Now, we will create an action group that will point to our current Lambda function "cloudmart-list-products"
-***3. Redeploy the backend with AI Assistants***
+Next, we will create an Alias for the agent:
 
 
+```
+aws bedrock-agent create-agent-alias \
+    --agent-id "your-agent-id" \
+    --agent-alias-name "cloudmart-prod" \
+    --description "My Agent Alias"
+```
+
+Now, we will follow the set of instructions fo configuring OpenAI Assistants API's:
+
+### OpenAI Access:
+
+1. Access the OpenAI platform (https://platform.openai.com/).
+2. Log in or create an account if you don't have one yet.
+
+<aside>
+Note: You will need to add at least $5.00 credit for the API to work. Make sure you go to 'Billing' and add a payment method.
+</aside>
+
+![image](/assets/image3.png)
+
+### Create the Assistant:
+
+1. Navigate to the "Assistants" section.
+2. Click on "Create New Assistant".
+3. Name the assistant "CloudMart Customer Support".
+4. Select the model `gpt-4o`.
+
+It will then generate an `Assistant ID` that we will need to save for usage in environment variables. 
+
+Finally, we will go on `API Keys` in OpenAI and generate a new API key, this one is also to be used for the env files.
+
+***3. Redeploy the backend with AI Assistants - Final Result***
+
+In this step we will deploy the changes of our `cloudmart-backend.yaml` file that we deployed in our kubernetes cluster and replace the values as needed.
+
+![image](/assets/image4.png)
+
+And finally, we will test the deployment in kubernetes
+
+```
+kubectl apply -f cloudmart-backend.yaml
+```
 <h2>Conclusion</h2>
 
 In this project, I learned how 
