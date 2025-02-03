@@ -2,11 +2,11 @@
   <img src="assets/diagram.png" 
 </p>
   
-## ☁️ MultiCloud, DevOps & AI Challenge — Day 3 — Building and Automating CI/CD Pipeline to Test, Stage and Deploy our E-Commerce Application. ☁️
+## ☁️ MultiCloud, DevOps & AI Challenge — Day 4 — Creating and Building AI agents for deployment in the E-commerce Website Cloudmart ☁️
 
 This is part of the fourth project of the Multicloud, Devops and AI Challenge!
 
-In this project we will be build and automating our E-commerce application testings and deployments for production using AWS CodePipeline so that every time we push changes to our application they are built and deployed automatically. 
+In this project, I built and created AI agents to be deployed to an e-commerce application using a multi-cloud and DevOps approach. I leveraged Amazon Web Services (AWS), GitHub Codespaces, Amazon Bedrock, OpenAI, Docker, and Terraform to create a robust and scalable infrastructure. Here’s a breakdown of what I accomplished:
 
 
 <h2>Environments and Technologies Used</h2>
@@ -21,9 +21,7 @@ In this project we will be build and automating our E-commerce application testi
   
 <h2>Key Features</h2>  
 
-- ✅ Deployed Terraform Configuration for backend of the E-commerce app
-- ✅ Configured and created AI agents with Amazon Bedrock and OpenAI's API Keys
-- ✅ Deployed changes seamlessly with Docker images in the Elastic Container Registry with Kubernetes
+In this project, I built and created AI agents to be deployed to an e-commerce application using a multi-cloud and DevOps approach. I leveraged Amazon Web Services (AWS), GitHub Codespaces, Amazon Bedrock, OpenAI, Docker, and Terraform to create a robust and scalable infrastructure. Here’s a breakdown of what I accomplished:In this project, I built and created AI agents to be deployed to an e-commerce application using a multi-cloud and DevOps approach. I leveraged Amazon Web Services (AWS), GitHub Codespaces, Amazon Bedrock, OpenAI, Docker, and Terraform to create a robust and scalable infrastructure. Here’s a breakdown of what I accomplished:
 
 
 <h2>Step by Step Instructions</h2>
@@ -273,11 +271,16 @@ In this step we will deploy the changes of our `cloudmart-backend.yaml` file tha
 
 ![image](/assets/image4.png)
 
-And finally, we will test the deployment in kubernetes
+And finally, we will apply the deployment in kubernetes
 
 ```
 kubectl apply -f cloudmart-backend.yaml
 ```
+
+If everything goes well, you should be able to see the AI assistants giving custom recommendations for the e-commerce website!
+
+![image](/assets/image5.png)
+
 <h2>Conclusion</h2>
 
-In this project, I learned how 
+This project successfully demonstrated that by integrating AWS services like DynamoDB, Lambda, and Amazon Bedrock with OpenAI’s GPT-4 model, I was able to enhance the application’s functionality with AI-driven features such as product recommendations and customer support. The use of Terraform for infrastructure as code (IaC) ensured that the deployment process was consistent, repeatable, and scalable. Additionally, leveraging Docker and Kubernetes allowed for efficient containerization and orchestration of the application.

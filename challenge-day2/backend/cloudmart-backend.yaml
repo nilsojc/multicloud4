@@ -15,20 +15,20 @@ spec:
       serviceAccountName: cloudmart-pod-execution-role
       containers:
       - name: cloudmart-backend-app
-        image: 137068224350.dkr.ecr.us-east-1.amazonaws.com/cloudmart-backend:latest
+        image: public.ecr.aws/h1s2k0z9/cloudmart-backend:latest
         env:
         - name: PORT
           value: "5000"
         - name: AWS_REGION
           value: "us-east-1"
         - name: BEDROCK_AGENT_ID
-          value: "xxxxxx"
+          value: "XXXX"
         - name: BEDROCK_AGENT_ALIAS_ID
-          value: "xxxx"
+          value: "XXXX"
         - name: OPENAI_API_KEY
-          value: "xxxxxx"
+          value: "XXXX"
         - name: OPENAI_ASSISTANT_ID
-          value: "xxxx"
+          value: "XXXX"
 ---
 
 apiVersion: v1
