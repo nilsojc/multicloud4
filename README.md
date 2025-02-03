@@ -198,7 +198,11 @@ In this step, we will configure Amazon Bedrock so that we can utilize `Claude 3 
 
 First, we configure Amazon Bedrock to allow `Claude 3 Sonnet`:
 
-(Video)
+
+
+https://github.com/user-attachments/assets/25a052ea-275a-4bf0-90f7-91988df8b902
+
+
 
 NOTE: Make sure that you have access granted by checking the AWS Console.
 
