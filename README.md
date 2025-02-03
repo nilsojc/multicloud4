@@ -193,7 +193,7 @@ output "list_products_function_arn" {
 ```
 
 
-***2. Configuring Agents in Amazon Bedrock***
+***3. Configuring Agents in Amazon Bedrock***
 
 In this step, we will configure Amazon Bedrock so that we can utilize `Claude 3 Sonnet` along with the creation of our AI agents with instructions and permissions specified. 
 
@@ -270,7 +270,7 @@ It will then generate an `Assistant ID` that we will need to save for usage in e
 
 Finally, we will go on `API Keys` in OpenAI and generate a new API key, this one is also to be used for the env files.
 
-***3. Redeploy the backend with AI Assistants - Final Result***
+***4. Redeploy the backend with AI Assistants - Final Result***
 
 In this step we will deploy the changes of our `cloudmart-backend.yaml` file that we deployed in our kubernetes cluster and replace the values as needed.
 
