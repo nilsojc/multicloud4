@@ -21,8 +21,9 @@ In this project, I built and created AI agents to be deployed to an e-commerce a
   
 <h2>Key Features</h2>  
 
-In this project, I built and created AI agents to be deployed to an e-commerce application using a multi-cloud and DevOps approach. I leveraged Amazon Web Services (AWS), GitHub Codespaces, Amazon Bedrock, OpenAI, Docker, and Terraform to create a robust and scalable infrastructure. Here’s a breakdown of what I accomplished:In this project, I built and created AI agents to be deployed to an e-commerce application using a multi-cloud and DevOps approach. I leveraged Amazon Web Services (AWS), GitHub Codespaces, Amazon Bedrock, OpenAI, Docker, and Terraform to create a robust and scalable infrastructure. Here’s a breakdown of what I accomplished:
-
+✅ Deployed Terraform Configuration for backend of the E-commerce app.
+✅ Configured and created AI agents with Amazon Bedrock and OpenAI's API Keys.
+✅ Deployed changes seamlessly with Docker images in the Elastic Container Registry with Kubernetes.
 
 <h2>Step by Step Instructions</h2>
 
