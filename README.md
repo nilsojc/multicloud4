@@ -22,7 +22,9 @@ In this project, I built and created AI agents to be deployed to an e-commerce a
 <h2>Key Features</h2>  
 
 ✅ Deployed Terraform Configuration for backend of the E-commerce app.
+
 ✅ Configured and created AI agents with Amazon Bedrock and OpenAI's API Keys.
+
 ✅ Deployed changes seamlessly with Docker images in the Elastic Container Registry with Kubernetes.
 
 <h2>Step by Step Instructions</h2>
